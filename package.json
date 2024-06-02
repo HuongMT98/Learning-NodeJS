@@ -1,18 +1,16 @@
 {
   "name": "learning-nodejs",
   "version": "1.0.0",
-  "description": "Learning NodeJs",
-  "main": "src/index.js",
+  "description": "",
+  "main": "/src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "start": "nodemon ./src/server.js"
   },
   "author": "ThanhHuong",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
     "express": "^4.19.2",
-    "morgan": "^1.10.0",
     "nodemon": "^3.1.2"
   }
 }
