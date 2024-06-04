@@ -1,12 +1,9 @@
-const { MongoClient } = require("mongodb")
-const { ServerApiVersion } = require("mongodb")
-const env = require("./environment")
-const MONGODB_URI = env.MONGODB_URI
-const MONGODB_NAME = env.MONGODB_NAME
+import { MongoClient, ServerApiVersion } from "mongodb"
+import env from "./environment.js"
 
 let databaseInstance = null
 
-const client = new MongoClient(MONGODB_URI, {
+const client = new MongoClient(env.MONGODB_URI, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -23,7 +20,7 @@ const CONNECT_DB = async () => {
   try {
     await client.connect()
 
-    databaseInstance = client.db(MONGODB_NAME)
+    databaseInstance = client.db(env.DATABASE_NAME)
   } catch (err) {
     console.error(err)
     throw new Error("Error connecting to the database")
@@ -38,4 +35,4 @@ const GET_DB = () => {
   }
 }
 
-module.exports = { CONNECT_DB, GET_DB }
+export { CONNECT_DB, GET_DB }
