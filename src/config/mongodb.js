@@ -1,8 +1,8 @@
 const { MongoClient } = require("mongodb")
 const { ServerApiVersion } = require("mongodb")
-const MONGODB_URI =
-  "mongodb+srv://mthanhhuong85:UCf7VugoOlCQp2uf@data-learnnodejs.5wksn3o.mongodb.net/?retryWrites=true&w=majority&appName=Data-LearnNodejs"
-const MONGODB_NAME = "Data-LearnNodejs"
+const env = require("./environment")
+const MONGODB_URI = env.MONGODB_URI
+const MONGODB_NAME = env.MONGODB_NAME
 
 let databaseInstance = null
 

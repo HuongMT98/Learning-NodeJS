@@ -1,6 +1,6 @@
 const express = require("express")
-
 const { CONNECT_DB, GET_DB } = require("./config/mongodb")
+const env = require("./config/environment")
 
 const START_SERVER = () => {
   const app = express()
@@ -8,12 +8,15 @@ const START_SERVER = () => {
   const port = 5000
 
   app.get("/", async (req, res) => {
-    console.log(await GET_DB().listCollections().toArray())
-    res.send("Hello World!")
+    req.db = GET_DB()
+    console.log(req.db)
+    res.send("<h1>Học Nodejs Expressjs</h1>")
   })
 
-  app.listen(port, () => {
-    console.log(`2: Backend server đang chạy tại: ${host}:${port}`)
+  app.listen(env.APP_PORT, env.APP_HOST, () => {
+    console.log(
+      `3: Hello ${env.AUTHOR} , Backend server đang chạy tại: ${host}:${port}`
+    )
   })
 }
 
@@ -24,7 +27,7 @@ const START_SERVER = () => {
   try {
     console.log("1: Đang kết nối Database MongoDB...")
     await CONNECT_DB()
-    console.log("1: Kết nối database thành công")
+    console.log("2: Kết nối Database thành công!")
 
     START_SERVER()
   } catch (error) {
