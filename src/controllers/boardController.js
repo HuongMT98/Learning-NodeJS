@@ -1,15 +1,16 @@
 import { StatusCodes } from "http-status-codes"
-import { boardValidations } from "../validations/boardValidations.js"
+import { createNew as createNewService } from "../services/boardService.js"
 
 const createNew = async (req, res, next) => {
   try {
-    console.log(req.body)
-    res.status(StatusCodes.CREATED).json({ message: "Note: Api create board" })
+    console.log("req.body", req.body)
+
+    const createBoard = await createNewService(req.body)
+
+    res.status(StatusCodes.CREATED).json(createBoard)
     next()
   } catch (error) {
-    res
-      .status(StatusCodes.UNPROCESSABLE_ENTITY)
-      .json({ message: error.message })
+    next(error)
   }
 }
 

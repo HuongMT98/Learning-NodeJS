@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import express from "express"
-import { CONNECT_DB } from "./config/mongodb.js"
+import { CONNECT_DB, GET_DB } from "./config/mongodb.js"
 import env from "./config/environment.js"
 import router from "./routes/v1/index.js"
+import errorMiddleware from "./middleware/errorMiddleware.js"
 
 const START_SERVER = () => {
   const app = express()
@@ -12,6 +14,9 @@ const START_SERVER = () => {
 
   //use Api routers
   app.use("/v1", router)
+
+  //Middleware xử lý lỗi tập trung
+  app.use(errorMiddleware)
 
   app.get("/", (req, res) => {
     res.send("<h1>Hello World</h1>")
