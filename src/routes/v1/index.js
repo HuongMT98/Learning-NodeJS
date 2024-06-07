@@ -1,8 +1,14 @@
 import express from "express"
-const router = express.Router()
+import { StatusCodes } from "http-status-codes"
+import { boardRoutes } from "./boardRoutes.js"
 
-router.get("/status", (req, res) => {
-  res.status(200).json({ message: "Hello World" })
+const Router = express.Router()
+
+Router.get("/status", (req, res) => {
+  res.status(StatusCodes.OK).json({ message: "Connected server is running" })
 })
 
-export default router
+//Boards API
+Router.use("/boards", boardRoutes)
+
+export default Router

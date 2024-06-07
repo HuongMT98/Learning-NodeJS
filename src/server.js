@@ -8,6 +8,9 @@ const START_SERVER = () => {
   const host = "http://localhost"
   const port = 3000
 
+  app.use(express.json())
+
+  //use Api routers
   app.use("/v1", router)
 
   app.get("/", (req, res) => {
