@@ -19,7 +19,7 @@ const START_SERVER = () => {
   app.use(errorMiddleware)
 
   app.get("/", (req, res) => {
-    res.send("<h1>Hello World</h1>")
+    res.send("<h1>Learning Nodejs Backend</h1>")
   })
 
   app.listen(port, () => {

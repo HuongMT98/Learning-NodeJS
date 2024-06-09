@@ -6,9 +6,6 @@ const env = {
   AUTHOR: process.env.AUTHOR,
 
   BUILD_MODE: process.env.BUILD_MODE,
-
-  HOST: process.env.HOST,
-  PORT: process.env.PORT,
 }
 
 export default env
