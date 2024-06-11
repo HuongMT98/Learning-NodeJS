@@ -1,4 +1,5 @@
 import Joi from "joi"
+import { GET_DB } from "../config/mongodb.js"
 
 //define schema
 const BOARD_COLLECTION_NAME = "boards"
@@ -13,7 +14,16 @@ const BOARD_COLLECTION_SCHEMA = Joi.object({
   _destroy: Joi.boolean().default(false),
 })
 
+const creatNew = async (data) => {
+  try {
+    return await GET_DB().collection(BOARD_COLLECTION_NAME).insertOne(data)
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 export const boardModel = {
   BOARD_COLLECTION_NAME,
   BOARD_COLLECTION_SCHEMA,
+  creatNew,
 }

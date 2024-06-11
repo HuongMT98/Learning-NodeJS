@@ -1,16 +1,22 @@
-/* eslint-disable no-useless-catch */
-// eslint-disable-next-line no-unused-vars
 import slugify from "../untils/formatter.js"
+import { boardModel } from "../models/boardModel.js"
 
-export const createNew = async (reqBody) => {
+const createNew = async (reqBody) => {
   try {
     const newBoard = {
       ...reqBody,
       slug: slugify(reqBody.title),
     }
 
-    return newBoard
+    const creatBoard = await boardModel.creatNew(newBoard)
+    console.log(creatBoard)
+
+    return creatBoard
   } catch (error) {
-    throw error
+    throw new Error(error)
   }
+}
+
+export const boardService = {
+  createNew,
 }
