@@ -8,10 +8,10 @@ const createNew = async (reqBody) => {
       slug: slugify(reqBody.title),
     }
 
-    const creatBoard = await boardModel.creatNew(newBoard)
-    console.log(creatBoard)
+    const createdBoard = await boardModel.creatNewBoard(newBoard)
+    console.log(createdBoard)
 
-    return creatBoard
+    return createdBoard
   } catch (error) {
     throw new Error(error)
   }

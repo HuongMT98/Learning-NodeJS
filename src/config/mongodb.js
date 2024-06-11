@@ -14,7 +14,7 @@ const client = new MongoClient(env.MONGODB_URI, {
 // Connect to the database
 const CONNECT_DB = async () => {
   if (databaseInstance) {
-    throw new Error("Database is already connected")
+    throw new Error("Database đã đã được kết nối")
   }
 
   try {
@@ -23,13 +23,13 @@ const CONNECT_DB = async () => {
     databaseInstance = client.db(env.DATABASE_NAME)
   } catch (err) {
     console.error(err)
-    throw new Error("Error connecting to the database")
+    throw new Error("Lỗi kết nối tới database")
   }
 }
 
 const GET_DB = () => {
   if (!databaseInstance) {
-    throw new Error("Database is not connected")
+    throw new Error("Database chưa được kết nối")
   } else {
     return databaseInstance
   }

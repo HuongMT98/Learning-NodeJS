@@ -8,7 +8,7 @@ const boardRoutes = express.Router()
 boardRoutes
   .route("/")
   .get((req, res) => {
-    res.status(StatusCodes.OK).json({ message: "Note: Api get list boards" })
+    res.status(StatusCodes.OK).json({ message: "Note: API lấy dữ liệu boards" })
   })
   .post(boardValidations.createNew, boardController.createNew)
 
