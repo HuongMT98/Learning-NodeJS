@@ -8,10 +8,15 @@ const createNew = async (reqBody) => {
       slug: slugify(reqBody.title),
     }
 
+    //Tạo bảng ghi mới lưu vào database
     const createdBoard = await boardModel.creatNewBoard(newBoard)
-    console.log(createdBoard)
+    // console.log(`createdBoard`, createdBoard)
 
-    return createdBoard
+    //Lấy bảng ghi đã được tạo
+    const getBoard = await boardModel.findOneById(createdBoard.insertedId)
+    // console.log(`getBoard`, getBoard)
+
+    return getBoard
   } catch (error) {
     throw new Error(error)
   }

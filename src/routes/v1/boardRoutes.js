@@ -10,6 +10,8 @@ boardRoutes
   .get((req, res) => {
     res.status(StatusCodes.OK).json({ message: "Note: API lấy dữ liệu boards" })
   })
+
+  //Gửi code sang controller và validations
   .post(boardValidations.createNew, boardController.createNew)
 
 export default boardRoutes

@@ -19,11 +19,11 @@ const START_SERVER = () => {
   app.use(errorMiddleware)
 
   app.get("/", (req, res) => {
-    res.send("<h1>Learning Nodejs Backend</h1>")
+    res.send("<h1 style='color:blue'>Server Online</h1>")
   })
 
   app.listen(port, () => {
-    console.log(`3: Xin chào ${env.AUTHOR}, server đang chạy ${host}:${port}`)
+    console.log(`3: Xin chào ${env.AUTHOR}, server đang chạy "${host}:${port}"`)
   })
 }
 
