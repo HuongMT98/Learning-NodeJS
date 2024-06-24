@@ -14,4 +14,6 @@ boardRoutes
   //Gửi code sang controller và validations
   .post(boardValidations.createNew, boardController.createNew)
 
+boardRoutes.route("/:id").get(boardController.getDetail).put()
+
 export default boardRoutes

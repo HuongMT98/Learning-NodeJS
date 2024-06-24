@@ -10,12 +10,11 @@ const createNew = async (reqBody) => {
 
     //Tạo bảng ghi mới lưu vào database
     const createdBoard = await boardModel.creatNewBoard(newBoard)
-    // console.log(`createdBoard`, createdBoard)
 
     //Lấy bảng ghi đã được tạo
     const getBoard = await boardModel.findOneById(createdBoard.insertedId)
-    // console.log(`getBoard`, getBoard)
 
+    //Trong service luôn phải có return, nếu không sẽ không có kết quả
     return getBoard
   } catch (error) {
     throw new Error(error)

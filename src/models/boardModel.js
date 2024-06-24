@@ -18,6 +18,7 @@ const BOARD_COLLECTION_SCHEMA = Joi.object({
 const creatNewBoard = async (data) => {
   try {
     return await GET_DB().collection(BOARD_COLLECTION_NAME).insertOne(data)
+    //InsertOne() trả về 1 object với 2 thuộc tính: insertedId, insertedCount
   } catch (error) {
     throw new Error(error)
   }
