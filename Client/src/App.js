@@ -1,5 +1,9 @@
 function App() {
-  return <></>
+  return (
+    <>
+      <div>Xin chào thế giới</div>
+    </>
+  )
 }
 
 export default App
