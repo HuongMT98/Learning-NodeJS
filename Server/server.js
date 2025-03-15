@@ -1,3 +1,4 @@
+//Library imports
 import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
@@ -22,7 +23,7 @@ const connectDB = async () => {
     await mongoose.connect(URL_DB)
     console.log("1:⭕ DataBase is connected")
     app.listen(PORT, () =>
-      console.log(`2:⭕ Server running on port 🔺http://localhost:${PORT}🔻`)
+      console.log(`2:⭕ Server running on port 🔺 http://localhost:${PORT} 🔻`)
     )
   } catch (error) {
     console.log("3:❌ Error connecting to DataBase, try again", error)
@@ -36,5 +37,3 @@ app.use(express.json())
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true, limit: "20mb" }))
-
-// Routes
